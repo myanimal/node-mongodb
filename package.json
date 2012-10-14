@@ -1,0 +1,17 @@
+{
+  "name": "node-mongodb",
+  "description": "A Node/MongoDB example app.",
+  "version": "1.0",
+  "repository": "git@github.com:myanimal/node-mongodb.git",
+  "author": "Alex Koller <myanimal@gmail.com>",
+  "main": "app.js",
+  "engines": {
+    "node": "0.8"
+  },
+  "files": [],
+  "dependencies": {
+    "mongoose": "3"
+  },
+  "devDependencies": {
+  }
+}
