@@ -21,6 +21,8 @@ db.once('open', function() {
     // Create new user and save
     var names = ['Alex','Ted','Bob','Mary','Tod','Fred','Bill','Sarah','Ed'];
     var newUser = new User({ name: names[Math.floor(Math.random()*names.length)] });
+    // Greet new user
+    newUser.speak();
     newUser.save(function(error) {
         if (error)
             console.log('Failed to save user: ' + error);
@@ -28,16 +30,18 @@ db.once('open', function() {
             console.log('User save: ' + newUser.name);
     });
 
-    // Load all useres and make them speak
+    // Load all users and list them
     User.find(function(error, users) {
         if (error)
             console.log('Failed to find users: ' + error);
         else {
-            console.log('Found users:');
+            console.log('Found %s users:', users.length);
             users.forEach(function(element, index, array) {
                 console.log("\t%s", element.name);
-                element.speak();
             });
         }
+
+        // Don't forget to clsoe the connection when we're don
+        db.close();
     });
 });
